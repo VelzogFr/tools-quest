@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Tables détectées</h2>
+<ul>
+  {% for name, table in tables.items() %}
+    <li><code>{{ name }}</code> ({{ table.columns | length }} colonnes)</li>
+  {% endfor %}
+</ul>
+
+{% if missing_tables %}
+<h2>Tables manquantes</h2>
+<p>Ces tables sont listées mais n'ont pas été trouvées dans la base de données configurée :</p>
+<ul>
+  {% for name in missing_tables %}
+    <li><code>{{ name }}</code></li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<p>
+  <a class="btn" href="/quest/new">Créer une nouvelle quête</a>
+</p>
+{% endblock %}
