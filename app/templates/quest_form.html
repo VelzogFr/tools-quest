@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Nouvelle quête</h2>
+<form method="post">
+  <fieldset>
+    <legend>Champs généraux (optionnel)</legend>
+    <div class="grid">
+      <label>
+        <span>quest_id</span>
+        <input type="text" name="quest_id" placeholder="Identifiant de la quête (si applicable)" />
+      </label>
+      <label>
+        <span>titre</span>
+        <input type="text" name="title" placeholder="Titre (vous pouvez aussi remplir dans quest_data)" />
+      </label>
+    </div>
+  </fieldset>
+
+  {% for name, table in tables.items() %}
+    <fieldset>
+      <legend>{{ name }}</legend>
+      <div class="grid">
+        {% for col in table_columns[name] %}
+          <label>
+            <span>{{ col }}</span>
+            <input type="text" name="{{ name }}.{{ col }}" />
+          </label>
+        {% endfor %}
+      </div>
+    </fieldset>
+  {% endfor %}
+
+  <div class="actions">
+    <button class="btn" type="submit">Enregistrer</button>
+  </div>
+</form>
+{% endblock %}

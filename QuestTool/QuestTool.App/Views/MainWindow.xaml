@@ -1,0 +1,28 @@
+<Window x:Class="QuestTool.App.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Quest Tool" Height="720" Width="1080"
+        WindowStartupLocation="CenterScreen"
+        Background="#0b1116"
+        Foreground="#e8eef2">
+  <DockPanel>
+    <Grid DockPanel.Dock="Top" Margin="16">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="220" />
+      </Grid.ColumnDefinitions>
+      <TextBlock Text="Quest Tool" FontSize="24" FontWeight="Bold" />
+      <TextBlock Grid.Column="1" Margin="16,0,8,0" VerticalAlignment="Center" Text="Quest ID:" />
+      <TextBox x:Name="QuestIdTextBox" Grid.Column="2" materialDesign:HintAssist.Hint="quest_id / id_quest" />
+    </Grid>
+
+    <TabControl x:Name="TablesTab" Margin="16" Background="#12202b" BorderBrush="#1f2d3a">
+      <!-- Tabs ajoutés au chargement -->
+    </TabControl>
+  </DockPanel>
+</Window>
